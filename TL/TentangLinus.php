@@ -37,7 +37,7 @@
 
         <div class="toggle-container">
         <div class="toggle-with-text">
-        <a href="TL/TentangLinus.php"> <span class="tentang-linus">Tentang</span></a>
+        <a href="../TL/TentangLinus.php"> <span class="tentang-linus">Tentang</span></a>
         </div>
             <input type="checkbox" id="darkModeToggle">
             <label for="darkModeToggle" class="toggle-label">
