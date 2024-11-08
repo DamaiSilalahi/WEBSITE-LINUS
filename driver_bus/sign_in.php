@@ -7,12 +7,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'];
 
     $stmt = $conn->prepare(query: "SELECT password FROM drivers WHERE plate_number = ?");
-    $stmt->bind_param(types :"s", var: &$plate_number);
+    $stmt->bind_param("s", $plate_number);
     $stmt->execute();
     $stmt->store_result();
 
     if ($stmt->num_row > 0) {
-        $stmt->bind_result(var: &$hashed_password);
+        $stmt->bind_result($hashed_password);
         $stmt->fetch();
         if (password_verify(password: $password, hash: $hashed_password)) {
             $_SESSION['plate_number'] = $plate_number;
