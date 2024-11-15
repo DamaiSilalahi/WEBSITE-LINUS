@@ -128,7 +128,6 @@
             </label>
         </div>        
 
-        
       <div class="hamburger" onclick="toggleSidebar()">
           &#9776;
       </div>
