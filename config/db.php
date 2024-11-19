@@ -1,14 +1,15 @@
 <?php
 $host = 'localhost';
-$user = 'root';
-$password = ''; // Sesuaikan dengan konfigurasi WAMP Anda
-$dbname = 'linus_realtime';
+$port = '2309';  // Port default PostgreSQL
+$user = 'postgres';  // Ganti dengan username PostgreSQL Anda
+$password = 'Intel007';  // Ganti dengan password PostgreSQL Anda
+$dbname = 'linus_realtime';  // Nama database PostgreSQL Anda
 
-// Buat koneksi
-$conn = new mysqli($host, $user, $password, $dbname);
-
-// Cek koneksi
-if ($conn->connect_error) {
-    die("Koneksi gagal: " . $conn->connect_error);
+try {
+    $conn = new PDO("pgsql:host=$host;port=$port;dbname=$dbname", $user, $password);
+    // Set atribut untuk menangani error
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die("Koneksi gagal: " . $e->getMessage());
 }
 ?>
