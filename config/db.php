@@ -2,7 +2,7 @@
 $host = 'localhost';
 $port = '5432';  
 $user = 'postgres';  
-$password = 'Bahogouqwe123';  
+$password = '12345';  
 $dbname = 'web_linus';  
 
 try {
