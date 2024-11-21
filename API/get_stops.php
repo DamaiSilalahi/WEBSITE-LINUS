@@ -2,7 +2,10 @@
 require '../config/db.php';
 
 $query = "
-SELECT c.latitude, c.longitude, br.sequence FROM bus_route br JOIN coordinates c ON br.coordinate_id = c.id ORDER BY br.sequence ASC";
+    SELECT bs.name, c.latitude, c.longitude
+    FROM bus_stop bs
+    JOIN coordinates c ON bs.coordinate_id = c.id
+";
 
 $stmt = $conn->prepare($query);
 $stmt->execute();
@@ -14,5 +17,5 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
 header('Content-Type: application/json');
 
-echo json_encode|($stops);
+echo json_encode($stops);
 ?>
