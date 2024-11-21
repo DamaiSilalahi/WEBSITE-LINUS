@@ -1,18 +1,19 @@
 <?php
 require '../config/db.php';
 
-$query = "SELECT name, latitude, longitude FROM bus_stops";
-$result = $conn->query($query);
+$query = "
+SELECT bs.name, c.latitude, c.longitude FROM bus_stop bs JOIN coordinates c ON bs.coordinate_id = c.id
+";
+
+$stmt = $conn->prepare($query);
+$stmt->execute();
 
 $stops = [];
-
-if ($result->num_rows > 0){
-    while($row = $result->fetch_assoc())
-    {
-        $stops[] = $row;
-    }
+while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+    $stops[] = $row;
 }
 
 header('Content-Type: application/json');
+
 echo json_encode($stops);
 ?>
