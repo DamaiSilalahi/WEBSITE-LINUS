@@ -7,12 +7,12 @@ SELECT c.latitude, c.longitude, br.sequence FROM bus_route br JOIN coordinates c
 $stmt = $conn->prepare($query);
 $stmt->execute();
 
-$stops = [];
+$route = [];
 while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-    $stops[] = $row;
+    $route[] = $row;
 }
 
 header('Content-Type: application/json');
 
-echo json_encode|($stops);
+echo json_encode|($route);
 ?>
