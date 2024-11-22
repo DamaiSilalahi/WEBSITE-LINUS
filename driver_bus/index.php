@@ -105,7 +105,7 @@ try {
             map: map,
             title: "Lokasi Anda",
             icon: {
-                url: "../img/bus-driver.png", 
+                url: "img/bus-driver.png", 
                 scaledSize: new google.maps.Size(50, 50)
             }
         });
