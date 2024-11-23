@@ -1,8 +1,8 @@
 <?php
 session_start();
-require '../config/db.php';
+require '../config/db.php';  
 
-if($_SERVER['REQUEST_METHOD'] === 'POST') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'];
     $password = $_POST['password'];
     $confirm_password = $_POST['confirm_password'];
@@ -21,22 +21,22 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
             $updatePassword->bindParam(':email', $email, PDO::PARAM_STR);
             $updatePassword->execute();
 
-            header('Location : sign_in.php');
+            header('Location: sign_in.php');
             exit;
         } else {
-            $error = 'Email tidak ditemukan!';
+            $error = "Email tidak ditemukan!";
         }
     } else {
-        $error = 'Password dan konfirmasi password tidak cocok!';
+        $error = "Password dan konfirmasi password tidak cocok!";
     }
 }
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <title>Ubah Password</title>
-    <link rel="stylesheet" href="css/driver_signin.css">
+    <link rel="stylesheet" href="">
 </head>
 <body>
 <div class="overlay"></div>
@@ -45,7 +45,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
             <h1>Ubah Password Driver Bus</h1>
             <?php if (isset($error)) echo "<p style='color: red;'>$error</p>"; ?>
             <form method="post" class="signin-form">
-                <div class ="inputBox">
+                <div class="inputBox">
                     <input type="text" name="email" required>
                     <i>Email</i>
                 </div>
