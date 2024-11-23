@@ -173,8 +173,7 @@
        </div>
     </a>
     <main>
-        <div class="mapContainer">
-            <p>LIVE TRACKING</p>
+        <div class="mapContainer">  
             <div id="map"></div>
         </div>
     </main>
