@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html lang="id">
 <head>
     <title>Ubah Password</title>
-    <link rel="stylesheet" href="css/driver_signin.css">
+    <link rel="stylesheet" href="css/driver_bus.css">
 </head>
 <body>
 <div class="overlay"></div>
