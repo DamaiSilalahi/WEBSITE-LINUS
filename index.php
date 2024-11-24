@@ -10,85 +10,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Didot&display=swap" rel="stylesheet">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBQysCqG7Sro0uY27iNvQ6MJ86oWkiLccs"></script>
+    <script src="js/script_map.js"></script>
     <title>LINUS TRACKING</title>
 
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-    <script>
-        let map;
-        let markers = {};
-        let busRoute = [];
-
-        function initMap() {
-            map = L.map('map').setView([3.559263, 98.660454], 15);
-
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                maxZoom: 19,
-                attribution: '© OpenStreetMap'
-            }).addTo(map);
-
-            fetch('api/get_stops.php')
-                .then(response => response.json())
-                .then(data => {
-                    data.forEach(stop => {
-                        addBusStop(stop.name, stop.latitude, stop.longitude);
-                    });
-                    drawBusRoute();
-                })
-        }
-
-        function addBusStop(name, lat, lng) {
-            const icon = L.icon({
-                iconUrl: 'img/halte.png',
-                iconSize: [30, 30],
-                iconAnchor: [15, 15]
-            });
-
-            const marker = L.marker([lat, lng], { icon: icon }).addTo(map).bindPopup(name);
-            busRoute.push([lat, lng]);
-        }
-
-        function drawBusRoute() {
-            const busPath = L.polyline(busRoute, {
-                color:'#008000',
-                weight: 2,
-                opacity: 1.0
-            }).addTo(map);
-        }
-
-        function updateDriverLocation(plateNumber, lat, lng) {
-            console.log(`Lokasi diterima: Plat Nomor: ${plateNumber}, Latitude: ${lat}, Longitude: ${lng}`);
-
-            if (markers[plateNumber]) {
-                markers[plateNumber].setLatLng([lat, lng]);
-            } else {
-                const icon = L.icon({
-                    iconUrl: 'img/bus.png',
-                    iconSize:[50, 50],
-                    iconAnchor: [25, 25]
-                });
-
-                const marker = L.marker([lat, lng], { icon: icon }).addTo(map).bindPopup(`<strong>Plat Nomor:</strong> ${plateNumber}`);
-                markers[plateNumber] = marker;
-            }
-        }
-
-        const ws = new WebSocket('ws://localhost:8080/bus-location');
-
-        ws.onmessage = function (event) {
-            const data = JSON.parse(event.data);
-            updateDriverLocation(data.plate_number, data.lat, data.lng);
-        };
-
-        window.onload = initMap;
-
-
-        function toggleSidebar() {
-        var sidebar = document.getElementById("sidebar");
-        sidebar.classList.toggle("active");
-    }
-
-    </script>
 </head>
 <body>
     <nav>
