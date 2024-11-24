@@ -40,13 +40,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['sign_up'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up Admin</title>
-    <link rel="stylesheet" href="adminsignin.css"></style>
 </head>
 <body>
     <div class="imagehalf"></div>
     <div class="formloginadmin">
     <h2>Sign Up</h2>
-        <form method="POST" action="">
+        <form method="POST" action="">  
             <label for="username">Username:</label><br>
             <input type="text" id="username" name="username" required><br><br>
 
