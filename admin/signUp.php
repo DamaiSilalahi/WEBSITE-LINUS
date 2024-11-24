@@ -6,15 +6,15 @@ $message = '';
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['sign_up'])) {
     $username = trim($_POST['username']);
     $password = trim($_POST['password']);
-
+    
     if (!empty($username) && !empty($password)) {
         $hashed_password = password_hash($password, PASSWORD_BCRYPT);
-
+        
         try {
             $stmt = $conn->prepare("SELECT username FROM admin WHERE username = :username");
             $stmt->bindParam(':username', $username);
             $stmt->execute();
-
+            
             if ($stmt->rowCount() > 0) {
                 $message = "Username sudah digunakan.";
             } else {
@@ -22,8 +22,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['sign_up'])) {
                 $stmt->bindParam(':username', $username);
                 $stmt->bindParam(':password', $hashed_password);
                 $stmt->execute();
-
-                $message = "Akun berhasil dibuat. Silahkan <a href='sign_in.php'>Sign In</a>.";
+                
+                $message = "Akun berhasil dibuat. Silakan <a href='sign_in.php'>Sign In</a>.";
             }
         } catch (PDOException $e) {
             $message = "Kesalahan: " . $e->getMessage();
@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['sign_up'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign Up Admin</title>
-    <link rel="stylesheet" href="auth.css"></style>
+    <link rel="stylesheet" href="adminsignin.css"></style>
 </head>
 <body>
     <div class="imagehalf"></div>
