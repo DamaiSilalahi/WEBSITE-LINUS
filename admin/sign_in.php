@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['sign_in'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sign In Admin</title>
-    <link rel="stylesheet" href="adminsignin.css"></style>
+    <link rel="stylesheet" href="auth.css">
 </head>
 <body>
     <div class="imagehalf"></div>
@@ -57,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['sign_in'])) {
 
         <p><?php echo $message; ?></p>
 
-        <p>Belum punya akun? <a href="sign_up.php">Sign Up</a></p>
+        <p>Belum punya akun? <a href="signUp.php">Sign Up</a></p>
     </div>
     
 </body>
