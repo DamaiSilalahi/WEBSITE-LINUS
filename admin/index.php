@@ -83,10 +83,12 @@ if (isset($_POST['update_driver_id']) && isset($_POST['new_username'])) {
             $stmt = $conn->prepare("INSERT INTO bus (plat_nomor) VALUES (:plat_nomor)");
             $stmt->bindParam(':plat_nomor', $add_plate_number);
             $stmt->execute();
-            echo "<script>alert('Bus baru berhasil ditambahkan'); window.location.href='index.php';</script>";
+
+            echo json_encode(['success' => true, 'message' => 'Bus baru berhasil ditambahkan']);
         } catch (PDOException $e) {
-            echo "Kesalahan: " . $e->getMessage();
+            echo json_encode(['success' => false, 'message' => $e->getMessage()]);
         }
+        exit();
     }
 
     if (isset($_POST['delete_bus_id'])) {
@@ -215,6 +217,14 @@ if (isset($_POST['update_driver_id']) && isset($_POST['new_username'])) {
 
         <div id="busTable" class="table-container">
             <h3>Kelola Data Bus</h3>
+            <button id="addBusButton" onclick="showAddBusForm()">Tambah Bus Baru</button>
+
+            <form id="addBusForm" style="display: none;">
+                <input type="text" id="add_bus_plate_number" placeholder="Plat Nomor Bus" required>
+                <button type="button" onclick="addBus()">Tambah</button>
+                <button type="button" onclick="cancelAddBus()">Batal</button>
+            </form>
+
             <table>
                 <thead>
                     <tr>
@@ -247,6 +257,44 @@ if (isset($_POST['update_driver_id']) && isset($_POST['new_username'])) {
     </div>
 </div>
     <script>
+        function showAddBusForm() {
+            document.getElementById('addBusForm').style.display = 'block';
+            document.getElementById('addBusButton').style.display = 'none';
+        }
+
+        function cancelAddBus() {
+            document.getElementById('addBusForm').style.display = 'none';
+            document.getElementById('addBusButton').style.display = 'inline';
+        }
+
+        function addBus() {
+            const plateNumber = document.getElementById('add_bus_plate_number').value;
+
+            if (plateNumber.trim() === '') {
+                Swal.fire('Error', 'Plat nomor bus tidak boleh kosong', 'error');
+                return;
+            }
+
+            fetch('index.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams({ add_bus_plate_number: plateNumber })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    Swal.fire('Berhasil', data.message, 'success').then(() => {
+                        location.reload();
+                    });
+                } else {
+                    Swal.fire('Gagal', data.message, 'error');
+                }
+            })
+            .catch(error => {
+                Swal.fire('Error', 'Terjadi kesalahan saat menambah bus', 'error');
+            });
+        }
+
         function confirmDeleteDriver(driverId) {
     Swal.fire({
         title: 'Konfirmasi Penghapusan',
