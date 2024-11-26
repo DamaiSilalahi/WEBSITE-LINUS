@@ -16,11 +16,11 @@ body.dark-mode nav {
 }
 
 body.dark-mode footer {
-    background-color:  #1c1c1c;
+    background: linear-gradient(to right, #212529, #000, #6c757d);
     color: #ffffff;
 }
 
-body.dark-mode footer .footer-content {
+body.dark-mode .footer-content {
     background-color: #1c1c1c;
     color: #ffffff; 
     border: 1px solid #555555; 
@@ -43,6 +43,15 @@ body.dark-mode footer .phone i {
 body.dark-mode .mapContainer {
     background-color: white !important;
     color: black !important;
+}
+
+body.dark-mode .faq-button {
+    background-color: #1c3a32;
+    color: #ffffff;
+}
+
+body.dark-mode .faq-button:hover{
+    background-color: #333;
 }
 
 .content {
