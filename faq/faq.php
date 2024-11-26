@@ -183,7 +183,7 @@
         </section>
     </main>
     <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
-    <script src="../js/script.js"></script>
+    <script src="../js/darkmode.js"></script>
 </body>
 </html>
  

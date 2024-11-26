@@ -86,12 +86,8 @@
      <div class="notification-box" id="notification">
         <p id="notificationMessage">Ini adalah pemberitahuan!</p>
     </div>
-    
-    <script>
-        setTimeout(() => {
-            showNotification(" ⚠️ LINUS sedang tidak beroperasi", 5000);
-        }, 2000);
-    </script>
+    <script src="js/notif_operation.js"></script>
+
     <a href="faq/faq.php">
        <div class="faq-button">
            <i class="fa fa-question"></i>
@@ -121,6 +117,6 @@
         </div>
     </div>
 </footer> 
-<script src="js/script.js"></script>
+<script src="js/darkmode.js"></script>
 </body>
 </html>

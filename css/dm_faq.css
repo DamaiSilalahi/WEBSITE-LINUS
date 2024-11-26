@@ -84,6 +84,16 @@ body.dark-mode .saran-container button:hover {
     background-color: #066f4a;
 }
 
+
+body.dark-mode .faq-button {
+    background-color: #1c3a32;
+    color: #ffffff;
+}
+
+body.dark-mode .faq-button:hover{
+    background-color: #333;
+}
+
 .content {
     text-align: center;
     margin-top: 50px;
