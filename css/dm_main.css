@@ -32,12 +32,26 @@ body.dark-mode nav {
 body.dark-mode footer {
     background: linear-gradient(to right, #212529, #000, #6c757d);
     color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    position: relative;
+    width: 100%;
+    bottom: 0;
+    padding: 20px;
+    gap: 20px;
 }
 
 body.dark-mode .footer-content {
     color: #ffffff; 
-    padding: 20px;
-    border-radius: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    flex-wrap: wrap;
 }
 
 body.dark-mode footer p,
