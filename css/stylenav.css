@@ -1,91 +1,89 @@
-*, html {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*,
+html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 nav {
-  background-color: #089a5b;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.25rem 1rem;
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
-  height: 80px;
+    background-color: #089a5b;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.25rem 1rem;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    height: 80px;
 }
 
 .logo-container {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 .logo-container img {
-  max-width: 50px;
+    max-width: 50px;
 }
 
 .center-nav {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-grow: 1;
-  transform: translateX(-50%); 
-  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    transform: translateX(-50%);
 }
 
 .center-nav a {
-  color: white; 
-  text-decoration: none; 
+    color: white;
+    text-decoration: none;
 }
 
 .center-nav a:hover {
-  text-decoration: none; 
-  color: white; 
+    text-decoration: none;
+    color: white;
 }
 
 .center-nav h1 {
-  font-family: 'Arial', sans-serif;
-  font-weight: bold;
-  font-size: 1.5rem;
-  text-align: center;
-  margin: 0;
-  white-space: nowrap;
-  color: white;
-  transition: color 0.3s, transform 0.3s;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 0;
+    white-space: nowrap;
+    color: white;
+    transition: color 0.3s, transform 0.3s;
 }
 
-
 .center-nav .location-linus-btn {
-  display: flex;
-  align-items: center;
-  padding: 0;
-  margin-left: 10px;
-  background-color: transparent;
-  border-radius: 0;
-  transition: background-color 0.3s;
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    background-color: transparent;
+    border-radius: 0;
+    transition: background-color 0.3s;
 }
 
 @keyframes moveLogo {
-  0% {
-      transform: translateX(0); 
-  }
-  50% {
-      transform: translateX(5px); 
-  }
-  100% {
-      transform: translateX(0); 
-  }
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(5px);
+    }
+    100% {
+        transform: translateX(0);
+    }
 }
 
 .location-linus-btn img {
-  max-width: 45px;
-  animation: moveLogo 2s infinite ease-in-out;
+    max-width: 45px;
+    animation: moveLogo 2s infinite ease-in-out;
 }
 
 .location-linus-btn:hover img {
-  animation: moveLogo 1s infinite ease-in-out;
+    animation: moveLogo 1s infinite ease-in-out;
 }
 
 .hamburger {
@@ -167,12 +165,11 @@ nav {
 .toggle-container {
   display: none;
   align-items: center;
-  position: absolute;
-  right: 20px; 
-  top: 30%; 
+  right: 20px;
+  top: 30%;
   transform: translateY(-50%);
   gap: 5px;
-  }
+}
 
 .toggle-with-text .tentang-linus {
   margin-right: 15px;
@@ -183,8 +180,8 @@ nav {
 }
 
 .toggle-with-text a {
-  text-decoration: none !important; 
-  color: inherit; 
+  text-decoration: none !important;
+  color: inherit;
 }
 
 .toggle-with-text {
@@ -193,12 +190,12 @@ nav {
   color: white;
   text-decoration: none;
   transition: color 0.3s, transform 0.3s
-  }
+}
 
 .toggle-with-text:hover {
-    color: #f0f0f0;
-    transform: scale(1.05);
-    }
+  color: #f0f0f0;
+  transform: scale(1.05);
+}
 
 .toggle-with-text span {
   margin-right: 10px;
@@ -207,11 +204,8 @@ nav {
 
 
 @media (max-width: 800px) {
-  nav .toggle-container { display: none; }
-  .sidebar .toggle-container {
-    display: flex;
-    justify-content: center;
-    padding: 15px 0;
+  nav .toggle-container {
+      display: none;
   }
 }
 
@@ -230,16 +224,28 @@ nav {
   display : none, block;
 }
 
-@media (max-width: 400px){
-.center-nav span {
-  display: block;
-  text-align: center;
-}
+@media (min-width: 800px) {
+  .toggle-container {
+      display: flex;
+      align-items: center;
+  }
 }
 
 @media (min-width: 800px) {
   .toggle-container {
     display: flex;
     align-items: center;
+  }
+}
+
+@media (max-width: 426px) {
+  .center-nav h1 span {
+      font-size: 1.1rem;
+  }
+  .logo-container img {
+      max-width: 30px;
+  }
+  .location-linus-btn img {
+      max-width: 20px;
   }
 }
