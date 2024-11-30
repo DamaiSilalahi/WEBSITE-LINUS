@@ -151,12 +151,12 @@ footer {
   .layanan-pengaduan {
     flex-direction: column;
     align-items: center;
+    gap: 10px;
   }
 
   .phone {
     justify-content: center;
     margin-left: 0;
-    margin-top: 10px;
   }
 
   .phone i {
@@ -166,5 +166,16 @@ footer {
   .footer-center {
     text-align: center;
     padding-top: 5px;
+  }
+}
+
+@media (max-width: 320px) {
+  .layanan-pengaduan {
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center; 
+    gap: 10px; 
+    padding: 10px; 
+    font-size: 14px; 
   }
 }
