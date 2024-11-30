@@ -147,7 +147,7 @@ nav {
   text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
 }
 
-.sidebar a:hover {
+.sidebar a:hover {  /*sidebar */
   color: #f0f0f0;
   background-color: rgba(153, 143, 143, 0.219);
 }
