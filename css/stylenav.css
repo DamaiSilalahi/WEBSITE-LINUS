@@ -24,7 +24,6 @@ nav {
 
 .logo-container img {
   max-width: 50px;
-  margin-right: 10px;
 }
 
 .center-nav {
@@ -32,8 +31,6 @@ nav {
   justify-content: center;
   align-items: center;
   flex-grow: 1;
-  position: absolute; 
-  left: 50%; 
   transform: translateX(-50%); 
   
 }
