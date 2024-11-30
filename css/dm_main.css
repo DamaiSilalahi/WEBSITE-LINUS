@@ -10,6 +10,20 @@ body.dark-mode {
     color: #ffffff;
 }
 
+.dark-mode-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: fixed;
+    transition: background-color 0.3s;
+}
+
 body.dark-mode nav {
     background-color:  #1c1c1c;
     color: #ffffff;
@@ -21,9 +35,7 @@ body.dark-mode footer {
 }
 
 body.dark-mode .footer-content {
-    background-color: #1c1c1c;
     color: #ffffff; 
-    border: 1px solid #555555; 
     padding: 20px;
     border-radius: 10px;
 }
@@ -151,4 +163,9 @@ body.dark .moon-icon {
 .notification-box:hover {
     background-color: #0eab65;
     cursor: pointer;
+}
+
+body.dark-mode .notification-box{
+    background-color: #333333;
+    color: #ffffff;
 }
