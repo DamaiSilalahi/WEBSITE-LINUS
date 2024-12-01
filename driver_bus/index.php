@@ -2,6 +2,21 @@
 session_start();
 require '../config/db.php';
 
+date_default_timezone_set('Asia/Jakarta');
+
+function checkAccessTime() {
+    $currentTime = strtotime(date('H:i')); 
+    $startTime = strtotime("07:00"); 
+    $endTime = strtotime("17:00");   
+    return $currentTime >= $startTime && $currentTime < $endTime;
+}
+
+if (!checkAccessTime()) {
+    session_destroy();
+    header('Location: sign_in.php'); 
+    exit;
+}
+
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     header('Location: sign_in.php');
     exit;
