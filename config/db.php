@@ -2,8 +2,8 @@
 $host = 'localhost';
 $port = '5432';  
 $user = 'postgres';  
-$password = '12345';  
-$dbname = 'web_linus';  
+$password = '12345678';  
+$dbname = 'linus_realtime';  
 
 try {
     $conn = new PDO("pgsql:host=$host;port=$port;dbname=$dbname", $user, $password);
