@@ -143,6 +143,7 @@ nav {
 }
 
 .sidebar a {
+    margin-left: 20px;
     text-decoration: none;
     font-size: 1rem;
     font-family: Poppins, sans-serif;
