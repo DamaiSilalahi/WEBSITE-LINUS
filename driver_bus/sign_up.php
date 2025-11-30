@@ -3,9 +3,9 @@ session_start();
 require '../config/db.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $plate_number = $_POST['plate_number'];
+    $email = $_POST['email']; 
     $username = $_POST['username']; 
-    $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+    $password = password_hash($_POST['password'], PASSWORD_BCRYPT);  
 
     $sql_check = "SELECT id FROM driver_bus WHERE email = :email OR username = :username";
     $stmt_check = $conn->prepare($sql_check);
@@ -21,13 +21,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->bindParam(':username', $username, PDO::PARAM_STR);
         $stmt->bindParam(':password', $password, PDO::PARAM_STR);
 
-    if ($stmt->execute()) {
-        header('Location: sign_in.php');
-        exit;
-    } else {
-        $error = "Terjadi kesalahan saat mendaftar!";
+        if ($stmt->execute()) {
+            header('Location: sign_in.php');
+            exit;
+        } else {
+            $error = "Terjadi kesalahan saat mendaftar!";
+        }
     }
-}
 }
 ?>
 

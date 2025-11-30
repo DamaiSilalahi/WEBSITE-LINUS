@@ -167,6 +167,12 @@ footer {
     text-align: center;
     padding-top: 5px;
   }
+    .layanan-pengaduan p {
+      font-size: 20px;
+  }
+  .mapContainer {
+      margin: 0px;
+  }
 }
 
 @media (max-width: 320px) {
